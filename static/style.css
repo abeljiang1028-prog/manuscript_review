@@ -264,3 +264,25 @@ a {
     border-top: 1px solid #e8dfd4;
     margin: 30px 0;
 }
+
+/* 首頁按鈕間距 */
+.notice .btn {
+    margin: 12px 8px 0;
+}
+
+/* 首頁文字排版 */
+.notice p {
+    line-height: 1.8;
+}
+
+/* 小螢幕排版 */
+@media (max-width: 600px) {
+    .container {
+        margin: 45px auto;
+        padding: 18px;
+    }
+
+    .notice {
+        padding: 25px 18px;
+    }
+}
