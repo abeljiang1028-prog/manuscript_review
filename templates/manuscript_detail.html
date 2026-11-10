@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ manuscript.title }}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <main class="page">
+        <section class="panel">
+            <a href="/author">← 返回我的投稿</a>
+
+            <h1>{{ manuscript.title }}</h1>
+
+            <p>類別：{{ manuscript.category }}</p>
+
+            <p>
+                狀態：
+                <span class="status {{ manuscript.status }}">
+                    {{ status_name }}
+                </span>
+            </p>
+
+            {% if manuscript.status == 'editing'
+                  and manuscript.return_reason %}
+            <div class="return-notice">
+                <strong>編輯退稿原因：</strong>
+                <p>{{ manuscript.return_reason }}</p>
+            </div>
+            {% endif %}
+
+            <hr>
+
+            <h2>文章內容</h2>
+
+            <div class="article-content">
+                {{ manuscript.content }}
+            </div>
+
+            {% if manuscript.status == 'editing' %}
+            <div class="actions">
+                <a href="/manuscripts/{{ manuscript.id }}/edit"
+                   class="btn">
+                    編輯文章
+                </a>
+
+                <form method="post"
+                      action="/manuscripts/{{ manuscript.id }}/submit"
+                      onsubmit="return confirm('確定要送出審查嗎？');">
+                    <button type="submit" class="btn">
+                        送出審查
+                    </button>
+                </form>
+
+                <form method="post"
+                      action="/manuscripts/{{ manuscript.id }}/delete"
+                      onsubmit="return confirm('確定刪除文章嗎？');">
+                    <button type="submit" class="btn btn-danger">
+                        刪除文章
+                    </button>
+                </form>
+            </div>
+            {% else %}
+                <p>此文章目前不可編輯或刪除。</p>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>

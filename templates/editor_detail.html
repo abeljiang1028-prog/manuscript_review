@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>審查文章</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <main class="page">
+        <section class="panel">
+            <a href="/editor">← 返回待審查清單</a>
+
+            <h1>{{ manuscript.title }}</h1>
+
+            <p>作者：{{ manuscript.author_name }}</p>
+            <p>類別：{{ manuscript.category }}</p>
+            <p>送審時間：{{ manuscript.submitted_time }}</p>
+
+            <p>
+                狀態：
+                <span class="status under_review">
+                    審查中
+                </span>
+            </p>
+
+            <hr>
+
+            <h2>文章內容</h2>
+
+            <div class="article-content">
+                {{ manuscript.content }}
+            </div>
+
+            <hr>
+
+            <h2>審查決定</h2>
+
+            <!-- 通過文章 -->
+            <form method="post"
+                  action="/editor/manuscripts/{{ manuscript.id }}/approve"
+                  onsubmit="return confirm('確定通過這篇文章嗎？');">
+
+                <button type="submit" class="btn btn-approve">
+                    通過審查
+                </button>
+            </form>
+
+            <!-- 退回文章 -->
+            <form method="post"
+                  action="/editor/manuscripts/{{ manuscript.id }}/return"
+                  class="review-form"
+                  onsubmit="return confirm('確定要退回這篇文章嗎？');">
+
+                <div class="form-field">
+                    <label for="reason">
+                        退稿原因（必填）
+                    </label>
+
+                    <textarea id="reason"
+                              name="reason"
+                              rows="5"
+                              placeholder="請填寫文章需要修改的地方"
+                              required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-danger">
+                    退回稿件
+                </button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

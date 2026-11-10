@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>作者中心</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <main class="page">
+        <header class="page-header">
+            <div>
+                <h1>作者中心</h1>
+                <p>歡迎，{{ user.username }}</p>
+            </div>
+
+            <form method="post" action="/logout">
+                <button type="submit" class="btn">登出</button>
+            </form>
+        </header>
+
+        <section class="panel">
+            <div class="section-header">
+                <h2>我的投稿</h2>
+                <a href="/manuscripts/new" class="btn">
+                    + 新增投稿
+                </a>
+            </div>
+
+            {% if manuscripts %}
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>類別</th>
+                            <th>文章標題</th>
+                            <th>審查狀態</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for m in manuscripts %}
+                        <tr>
+                            <td>{{ m.category }}</td>
+                            <td>
+                                {{ m.title }}
+                                {% if m.status == 'editing'
+                                      and m.return_reason %}
+                                <p class="return-label">
+                                    曾被退回
+                                </p>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <span class="status {{ m.status }}">
+                                    {{ status_names[m.status] }}
+                                </span>
+                            </td>
+                            <td>
+                                <a href="/manuscripts/{{ m.id }}">
+                                    查看文章
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+                <p>目前沒有投稿，開始新增第一篇文章吧！</p>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>

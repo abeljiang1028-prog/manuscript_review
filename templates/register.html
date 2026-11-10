@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>作者註冊</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="auth-card">
+        <h1>作者註冊</h1>
+
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form method="post" action="/register">
+            <label>帳號</label>
+            <input type="text" name="username"
+                   minlength="3" maxlength="50" required>
+
+            <label>密碼</label>
+            <input type="password" name="password"
+                   minlength="8" required>
+
+            <button type="submit">建立帳號</button>
+        </form>
+
+        <p>已有帳號？<a href="/login">返回登入</a></p>
+    </div>
+</body>
+</html>

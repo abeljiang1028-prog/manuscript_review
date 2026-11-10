@@ -1,0 +1,266 @@
+body {
+    margin: 0;
+    background-color: #faf5ed;
+    color: #51483d;
+    font-family: Arial, "Microsoft JhengHei", sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 40px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    color: #795f4d;
+}
+
+.notice {
+    margin-top: 40px;
+    padding: 35px;
+    border-radius: 16px;
+    background-color: #fffdf9;
+    box-shadow: 0 4px 18px #e8dfd4;
+}
+
+h2 {
+    color: #99765a;
+}
+
+/* 登入及註冊頁面 */
+.auth-card {
+    max-width: 420px;
+    margin: 80px auto;
+    padding: 40px;
+    background-color: #fffdf9;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px #e8dfd4;
+    text-align: center;
+}
+
+.auth-card label {
+    display: block;
+    text-align: left;
+    margin-top: 18px;
+}
+
+.auth-card input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #d8c8b8;
+    border-radius: 8px;
+}
+
+.auth-card button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 8px;
+    background-color: #99765a;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.auth-card button:hover {
+    background-color: #795f4d;
+}
+
+.auth-card a {
+    color: #99765a;
+}
+
+.error {
+    color: #c0392b;
+}
+
+/* 投稿系統頁面 */
+.page {
+    max-width: 1050px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.page-header,
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.panel {
+    background-color: #fffdf9;
+    padding: 35px;
+    border-radius: 18px;
+    margin-top: 25px;
+    box-shadow: 0 4px 18px #e8dfd4;
+}
+
+/* 按鈕 */
+.btn {
+    display: inline-block;
+    padding: 11px 20px;
+    background-color: #99765a;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 9px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #795f4d;
+}
+
+.btn-light {
+    background-color: #d8c8b8;
+    color: #51483d;
+}
+
+.btn-danger {
+    background-color: #b96565;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+/* 投稿清單 */
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+}
+
+th, td {
+    padding: 16px;
+    border-bottom: 1px solid #e9e0d5;
+    text-align: left;
+}
+
+th {
+    background-color: #f6eee4;
+}
+
+a {
+    color: #99765a;
+}
+
+/* 審查狀態 */
+.status {
+    display: inline-block;
+    padding: 7px 13px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.status.editing {
+    background-color: #e9e5de;
+    color: #665b4e;
+}
+
+.status.under_review {
+    background-color: #fff0c9;
+    color: #8c6b25;
+}
+
+.status.approved {
+    background-color: #ddefd9;
+    color: #3c7946;
+}
+
+/* 投稿表單 */
+.form-field {
+    margin-top: 22px;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d8c8b8;
+    border-radius: 9px;
+    background-color: #fff;
+    color: #51483d;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.form-field textarea {
+    resize: vertical;
+}
+
+.article-content {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #faf5ed;
+    border-radius: 12px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    line-height: 1.8;
+}
+
+.return-label {
+    color: #b96565;
+    font-size: 13px;
+}
+
+.return-notice {
+    margin: 20px 0;
+    padding: 18px;
+    background-color: #fff0e7;
+    border-left: 4px solid #b96565;
+    border-radius: 8px;
+}
+
+/* 編輯審查頁面 */
+.btn-approve {
+    background-color: #62956a;
+}
+
+.btn-approve:hover {
+    background-color: #4e7b55;
+}
+
+.btn-danger:hover {
+    background-color: #984c4c;
+}
+
+.review-form {
+    margin-top: 35px;
+    padding: 25px;
+    background-color: #fff5ee;
+    border-radius: 12px;
+}
+
+.review-form button {
+    margin-top: 18px;
+}
+
+.page hr {
+    border: 0;
+    border-top: 1px solid #e8dfd4;
+    margin: 30px 0;
+}

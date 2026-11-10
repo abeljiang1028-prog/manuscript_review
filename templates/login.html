@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>使用者登入</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="auth-card">
+        <h1>投稿審查系統</h1>
+        <h2>使用者登入</h2>
+
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form method="post" action="/login">
+            <label>帳號</label>
+            <input type="text" name="username" required>
+
+            <label>密碼</label>
+            <input type="password" name="password" required>
+
+            <button type="submit">登入</button>
+        </form>
+
+        <p>還沒有帳號？<a href="/register">註冊作者帳號</a></p>
+    </div>
+</body>
+</html>

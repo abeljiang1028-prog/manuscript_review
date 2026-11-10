@@ -1,0 +1,15 @@
+# 資料庫密碼及環境變數
+.env
+.env.*
+
+# Python 虛擬環境
+.venv/
+venv/
+
+# Python 快取
+__pycache__/
+*.pyc
+
+# 編輯器及系統檔案
+.vscode/
+.DS_Store

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>文章投稿</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <main class="page">
+        <section class="panel">
+            {% if mode == "new" %}
+                <h1>新增投稿</h1>
+                <form method="post" action="/manuscripts/new">
+            {% else %}
+                <h1>編輯投稿</h1>
+                <form method="post"
+                      action="/manuscripts/{{ manuscript.id }}/edit">
+            {% endif %}
+
+                {% if error %}
+                    <p class="error">{{ error }}</p>
+                {% endif %}
+
+                <div class="form-field">
+                    <label for="category">文章類別</label>
+                    <select id="category" name="category" required>
+                        {% for c in categories %}
+                        <option value="{{ c }}"
+                          {% if manuscript.category == c %}selected{% endif %}>
+                            {{ c }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="title">文章標題</label>
+                    <input id="title"
+                           type="text"
+                           name="title"
+                           maxlength="200"
+                           value="{{ manuscript.title }}"
+                           required>
+                </div>
+
+                <div class="form-field">
+                    <label for="content">文章內容</label>
+                    <textarea id="content"
+                              name="content"
+                              rows="12"
+                              required>{{ manuscript.content }}</textarea>
+                </div>
+
+                <div class="actions">
+                    <button type="submit" class="btn">
+                        儲存文章
+                    </button>
+                    <a href="/author" class="btn btn-light">
+                        取消
+                    </a>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

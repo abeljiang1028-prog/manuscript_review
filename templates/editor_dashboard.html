@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>編輯審查中心</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <main class="page">
+        <header class="page-header">
+            <div>
+                <h1>編輯審查中心</h1>
+                <p>歡迎，{{ user.username }}</p>
+            </div>
+
+            <form method="post" action="/logout">
+                <button type="submit" class="btn">
+                    登出
+                </button>
+            </form>
+        </header>
+
+        <section class="panel">
+            <div class="section-header">
+                <h2>待審查稿件</h2>
+                <p>共 {{ manuscripts|length }} 篇</p>
+            </div>
+
+            {% if manuscripts %}
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>作者</th>
+                            <th>類別</th>
+                            <th>文章標題</th>
+                            <th>送審時間</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for m in manuscripts %}
+                        <tr>
+                            <td>{{ m.author_name }}</td>
+                            <td>{{ m.category }}</td>
+                            <td>{{ m.title }}</td>
+                            <td>{{ m.submitted_time }}</td>
+                            <td>
+                                <a href="/editor/manuscripts/{{ m.id }}"
+                                   class="btn">
+                                    查看審查
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+                <p>目前沒有需要審查的稿件。</p>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>
